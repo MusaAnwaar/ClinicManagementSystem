@@ -57,23 +57,23 @@
          </image>
       </ImageView>
       <Button layoutX="489.0" layoutY="227.0" mnemonicParsing="false" onAction="#Cancel_appointment" opacity="0.0" prefHeight="39.0" prefWidth="40.0" text="Button" />
-      <Label layoutX="442.0" layoutY="363.0" prefHeight="23.0" prefWidth="134.0" text="View Appointments">
+      <Label layoutX="409.0" layoutY="363.0" prefHeight="23.0" prefWidth="194.0" text="View Appointment Schedule">
          <font>
             <Font name="Calisto MT Bold" size="15.0" />
          </font>
       </Label>
       <Button layoutX="435.0" layoutY="268.0" mnemonicParsing="false" onAction="#Cancel_appointment" opacity="0.0" prefHeight="23.0" prefWidth="134.0" text="Button" />
       <Button layoutX="485.0" layoutY="308.0" mnemonicParsing="false" onAction="#view_appointment" opacity="0.0" prefHeight="47.0" prefWidth="47.0" text="Button" />
-      <Button layoutX="445.0" layoutY="362.0" mnemonicParsing="false" onAction="#view_appointment" opacity="0.0" prefHeight="23.0" prefWidth="134.0" text="Button" />
       <ImageView disable="true" fitHeight="47.0" fitWidth="47.0" layoutX="484.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/42d2c59101dccaea5fa5d3a902d1f83b.png" />
          </image>
       </ImageView>
+      <Button layoutX="409.0" layoutY="362.0" mnemonicParsing="false" onAction="#view_appointment" opacity="0.0" prefHeight="26.0" prefWidth="194.0" text="Button" />
       <Button fx:id="Home" layoutX="766.0" layoutY="-4.0" mnemonicParsing="false" onAction="#home" opacity="0.0" prefHeight="30.0" prefWidth="30.0" text="Button" />
-      <Button layoutX="483.0" layoutY="403.0" mnemonicParsing="false" onAction="#Reschedule_appointment" opacity="0.0" prefHeight="41.0" prefWidth="47.0" text="Button" />
       <Button layoutX="421.0" layoutY="445.0" mnemonicParsing="false" onAction="#Reschedule_appointment" opacity="0.0" prefHeight="26.0" prefWidth="181.0" text="Button" />
-      <Label layoutX="424.0" layoutY="447.0" prefHeight="23.0" prefWidth="174.0" text="Reschedule Appointments">
+      <Button layoutX="483.0" layoutY="403.0" mnemonicParsing="false" onAction="#Reschedule_appointment" opacity="0.0" prefHeight="41.0" prefWidth="47.0" text="Button" />
+      <Label layoutX="424.0" layoutY="447.0" prefHeight="23.0" prefWidth="174.0" text="Reschedule Appointment">
          <font>
             <Font name="Calisto MT Bold" size="15.0" />
          </font>

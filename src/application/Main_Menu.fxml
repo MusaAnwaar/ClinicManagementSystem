@@ -50,7 +50,7 @@
          </image>
       </ImageView>
       <Button ellipsisString="" layoutX="608.0" layoutY="136.0" mnemonicParsing="false" onAction="#Make_Payment" opacity="0.0" prefHeight="48.0" prefWidth="54.0" text="Button" />
-      <Label layoutX="303.0" layoutY="353.0" prefHeight="24.0" prefWidth="95.0" text="Prescriptions">
+      <Label layoutX="282.0" layoutY="353.0" prefHeight="24.0" prefWidth="124.0" text="View Transactions">
          <font>
             <Font name="Calisto MT Bold" size="15.0" />
          </font>
@@ -60,7 +60,7 @@
             <Image url="@Images/medical-report.png" />
          </image>
       </ImageView>
-      <Button ellipsisString="" layoutX="322.0" layoutY="298.0" mnemonicParsing="false" onAction="#PrescriptionOptions" opacity="0.0" prefHeight="54.0" prefWidth="43.0" text="Button" />
+      <Button ellipsisString="" layoutX="322.0" layoutY="298.0" mnemonicParsing="false" onAction="#ViewTransactions" opacity="0.0" prefHeight="54.0" prefWidth="43.0" text="Button" />
       <Label layoutX="600.0" layoutY="353.0" prefHeight="24.0" prefWidth="54.0" text="Profiles">
          <font>
             <Font name="Calisto MT Bold" size="15.0" />

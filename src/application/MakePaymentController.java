@@ -32,14 +32,16 @@ public class MakePaymentController {
 		  }
 		  return Fee;  
 	  }
-	  public void MakePayment(int appID)
+	  public  int MakePayment(int appID)
 	  {
+		  int check =0;
 		  List<Appointment> AppSchedule=new ArrayList<Appointment>();
 		  AppSchedule=clinic.getAppointmentSchedule();
 		  for(int i=0;i<AppSchedule.size();i++)
 		  {
 			  if(AppSchedule.get(i).getAppointmentID()==appID)
 			  {
+				  check=1;
 				  AppSchedule.get(i).getPayment().setPaidStatus(1);
 				  //System.out.println("I come here");
 				  DBHandler ins = new DBHandler();
@@ -49,6 +51,7 @@ public class MakePaymentController {
 				  //System.out.println("I come here");	
 			  }
 		  }
+		  return check;
 
 	  }
 				  

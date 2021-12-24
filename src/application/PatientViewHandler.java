@@ -103,18 +103,4 @@ public class PatientViewHandler implements Initializable{
 		window.setTitle("Main Menu");
 		window.show();
     }
-    
-    @FXML
-    void handleDeleteButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleModifyButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleSearchButton(ActionEvent event) {
-    }
 }

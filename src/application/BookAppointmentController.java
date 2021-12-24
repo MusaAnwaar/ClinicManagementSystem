@@ -12,8 +12,9 @@ public class BookAppointmentController {
 			clinic.loadAppointmentCatalogue();
 
 		}
-	  public void BookAppointment(String service,int timem,int timeh,String date,String name,int age,int cnic,String email)
+	  public int BookAppointment(String service,int timem,int timeh,String date,String name,int age,int cnic,String email)
 	  {
+		  int valID;
 		 Appointment a= new Appointment();
 		 a.getBooking().setPatientDetails(age, name, cnic, email);
 		  a.booking.setBookingDetails(1, new Date());
@@ -27,6 +28,8 @@ public class BookAppointmentController {
 		  
 		 Ledger l = new Ledger();
 		 l.setLedgerDetails(a.payment,new Date(),a.payment.Amount);
+		 valID=a.getAppointmentID();
+		 return valID;
 	  }
 	  /*
 	  public AppointmentDescription SearchCatalogue(String service)

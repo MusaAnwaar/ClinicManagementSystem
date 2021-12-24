@@ -45,5 +45,10 @@
          </font>
       </Label>
       <TextField fx:id="AppID2" layoutX="592.0" layoutY="221.0" style="-fx-background-radius: 15; -fx-background-color: #3db1ab;" />
+      <Label fx:id="prompta" layoutX="458.0" layoutY="285.0" textFill="#c11c1c">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

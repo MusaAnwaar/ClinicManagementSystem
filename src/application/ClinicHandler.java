@@ -41,6 +41,9 @@ public class ClinicHandler {
 	private Text Prompt=new Text();
 	
 	@FXML
+	Label prompt = new Label();
+	
+	@FXML
 	TextField  user_n = new TextField();
 	
 	@FXML
@@ -113,44 +116,15 @@ public class ClinicHandler {
     }
     
     @FXML
-    private void  PrescriptionOptions(ActionEvent event) throws IOException {
-    	Parent CalenderView = FXMLLoader.load(getClass().getResource("PrescriptionOptions.fxml"));
+    private void  ViewTransactions(ActionEvent event) throws IOException {
+    	Parent CalenderView = FXMLLoader.load(getClass().getResource("TransactionsView.fxml"));
 		Scene CalenderScene=  new Scene(CalenderView);
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		window.setScene(CalenderScene);
 		window.setTitle("");
 		window.show();
     }
-   
-    @FXML
-    private void  Prescribe_patient(ActionEvent event) throws IOException {
-    	Parent CalenderView = FXMLLoader.load(getClass().getResource("PrescriptionOptions.fxml"));
-		Scene CalenderScene=  new Scene(CalenderView);
-		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		window.setScene(CalenderScene);
-		window.setTitle("");
-		window.show();
-    }
-    @FXML
-    private void  Edit_prescription(ActionEvent event) throws IOException {
-    	Parent CalenderView = FXMLLoader.load(getClass().getResource("PrescriptionOptions.fxml"));
-		Scene CalenderScene=  new Scene(CalenderView);
-		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		window.setScene(CalenderScene);
-		window.setTitle("");
-		window.show();
-    }
-   
-    @FXML
-    private void  View_prescription(ActionEvent event) throws IOException {
-    	Parent CalenderView = FXMLLoader.load(getClass().getResource("PrescriptionOptions.fxml"));
-		Scene CalenderScene=  new Scene(CalenderView);
-		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		window.setScene(CalenderScene);
-		window.setTitle("");
-		window.show();
-    }
-    
+  
     @FXML
     private void  ProfileOptions(ActionEvent event) throws IOException {
     	Parent CalenderView = FXMLLoader.load(getClass().getResource("ProfileOptions.fxml"));
@@ -191,8 +165,20 @@ public class ClinicHandler {
     @FXML
     private void Enter_Feedback(ActionEvent event) throws IOException {
     	String feedbackk=feedback.getText();
-    	clinic.setFeedback(feedbackk);
-    	System.out.print(feedbackk);
+    	if(feedback.getText().isEmpty())
+    	{
+    		prompt.setText("*Feedback is empty");
+    	}
+    	else
+    	{
+    		Parent CalenderView = FXMLLoader.load(getClass().getResource("FeedbackSuccessful.fxml"));
+    		Scene CalenderScene=  new Scene(CalenderView);
+    		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    		window.setScene(CalenderScene);
+    		window.setTitle("");
+    		window.show();
+    		clinic.setFeedback(feedbackk);
+    	}
     }
     
     @FXML

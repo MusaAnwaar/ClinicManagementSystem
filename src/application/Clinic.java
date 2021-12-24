@@ -11,7 +11,6 @@ public class Clinic {
     int PhoneNo;
     int ClinicID;
     Ledger ledger1;
-    Doctor doctor1;
     List<Appointment> AppointmentSchedule=new ArrayList<Appointment>();
     List<AppointmentDescription> AppointmentCatalogue=new ArrayList<AppointmentDescription>();
 
@@ -58,12 +57,6 @@ public class Clinic {
 	}
 	public void setLedger1(Ledger ledger1) {
 		this.ledger1 = ledger1;
-	}
-	public Doctor getDoctor1() {
-		return doctor1;
-	}
-	public void setDoctor1(Doctor doctor1) {
-		this.doctor1 = doctor1;
 	}
 	public List<Appointment> getAppointmentSchedule() {
 		return AppointmentSchedule;

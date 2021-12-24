@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="796.0" style="-fx-background-color: yellow;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AppointmentsHandler">
    <children>
-      <ImageView disable="true" fitHeight="546.0" fitWidth="796.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView disable="true" fitHeight="546.0" fitWidth="796.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/v870-tang-36.jpg" />
          </image>
@@ -110,22 +110,22 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="name" layoutX="569.0" layoutY="163.0" prefHeight="26.0" prefWidth="144.0" promptText="e.g (12)" style="-fx-background-radius: 10; -fx-background-color: #6accb2;">
+      <TextField fx:id="name" layoutX="569.0" layoutY="163.0" prefHeight="26.0" prefWidth="154.0" promptText="e.g Zainab Azeem" style="-fx-background-radius: 10; -fx-background-color: #6accb2;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="age" layoutX="569.0" layoutY="223.0" prefHeight="26.0" prefWidth="144.0" promptText="e.g (12)" style="-fx-background-radius: 10; -fx-background-color: #6accb2;">
+      <TextField fx:id="age" layoutX="569.0" layoutY="223.0" prefHeight="26.0" prefWidth="154.0" promptText="e.g (12)" style="-fx-background-radius: 10; -fx-background-color: #6accb2;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="email" layoutX="569.0" layoutY="348.0" prefHeight="26.0" prefWidth="144.0" promptText="e.g (12)" style="-fx-background-radius: 10; -fx-background-color: #6accb2;">
+      <TextField fx:id="email" layoutX="569.0" layoutY="348.0" prefHeight="26.0" prefWidth="154.0" promptText="e.g username@gmail.com" style="-fx-background-radius: 10; -fx-background-color: #6accb2;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="cnic" layoutX="569.0" layoutY="284.0" prefHeight="26.0" prefWidth="144.0" promptText="e.g (12)" style="-fx-background-radius: 10; -fx-background-color: #6accb2;">
+      <TextField fx:id="cnic" layoutX="569.0" layoutY="284.0" prefHeight="26.0" prefWidth="154.0" promptText="e.g 10000000 " style="-fx-background-radius: 10; -fx-background-color: #6accb2;">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -158,6 +158,31 @@
       <Label layoutX="541.0" layoutY="78.0" prefHeight="26.0" prefWidth="100.0" text="Patient Details">
          <font>
             <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="Prompb" layoutX="129.0" layoutY="426.0" textFill="#c12a2a">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="Prompb1" layoutX="571.0" layoutY="426.0" textFill="#c12a2a">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="Prompb2" layoutX="349.0" layoutY="399.0" textFill="#c12a2a">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="223.0" text="Timings: 800-2000" textFill="#00000072">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="580.0" layoutY="313.0" text="9 digits: starting with 1" textFill="#00000072">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
    </children>

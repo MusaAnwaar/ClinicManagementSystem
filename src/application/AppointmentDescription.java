@@ -59,7 +59,6 @@ public class AppointmentDescription {
 			  b=AppointmentCatalogue.get(i);
 			  if(b.Name.compareTo(service)==0)
 			  {
-				  //System.out.println("hii");
 				  this.setFee(b.getFee());
 				  this.setName(b.getName());
 			  }

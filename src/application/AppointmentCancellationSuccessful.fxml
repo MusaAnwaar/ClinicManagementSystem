@@ -15,29 +15,13 @@
             <Image url="@Images/v870-tang-36.jpg" />
          </image>
       </ImageView>
-      <Label ellipsisString="" layoutX="294.0" layoutY="99.0" prefHeight="90.0" prefWidth="208.0" text="Appointment">
-         <font>
-            <Font name="Calisto MT Bold Italic" size="35.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Label>
       <Button fx:id="Home" layoutX="428.0" layoutY="319.0" mnemonicParsing="false" onAction="#home" opacity="0.0" prefHeight="55.0" prefWidth="55.0" text="Button" />
       <ImageView disable="true" fitHeight="55.0" fitWidth="82.0" layoutX="428.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/25694.png" />
          </image>
       </ImageView>
-      <Label ellipsisString="" layoutX="428.0" layoutY="157.0" prefHeight="90.0" prefWidth="208.0" text="Cancelled">
-         <font>
-            <Font name="Calisto MT Bold Italic" size="35.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Label>
-      <Label ellipsisString="" layoutX="324.0" layoutY="213.0" prefHeight="90.0" prefWidth="208.0" text="Successfully!!">
+      <Label ellipsisString="" layoutX="246.0" layoutY="195.0" prefHeight="90.0" prefWidth="455.0" text="Appointment has been cancelled!">
          <font>
             <Font name="Calisto MT Bold Italic" size="35.0" />
          </font>

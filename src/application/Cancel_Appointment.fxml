@@ -22,9 +22,9 @@
             <Image url="@Images/25694.png" />
          </image>
       </ImageView>
-      <TextField fx:id="AppID" layoutX="459.0" layoutY="132.0" style="-fx-background-radius: 10; -fx-background-color: #6accb2;" />
-      <TextField fx:id="name1" layoutX="459.0" layoutY="215.0" style="-fx-background-radius: 10; -fx-background-color: #6accb2;" />
-      <TextField fx:id="cnic1" layoutX="459.0" layoutY="299.0" style="-fx-background-radius: 10; -fx-background-color: #6accb2;" />
+      <TextField fx:id="AppID" layoutX="459.0" layoutY="132.0" promptText="e.g 1" style="-fx-background-radius: 10; -fx-background-color: #6accb2;" />
+      <TextField fx:id="name1" layoutX="459.0" layoutY="215.0" promptText="e.g Zainab" style="-fx-background-radius: 10; -fx-background-color: #6accb2;" />
+      <TextField fx:id="cnic1" layoutX="459.0" layoutY="299.0" promptText="e.g 100000000" style="-fx-background-radius: 10; -fx-background-color: #6accb2;" />
       <Label layoutX="302.0" layoutY="130.0" prefHeight="30.0" prefWidth="113.0" text="Appointment ID">
          <font>
             <Font name="System Bold Italic" size="14.0" />

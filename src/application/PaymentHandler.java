@@ -20,81 +20,115 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class PaymentHandler implements Initializable{
+public class PaymentHandler implements Initializable {
 	@FXML
-	TextField AppID=new TextField();
+	TextField AppID = new TextField();
+
+	@FXML
+	TextField AppID2 = new TextField();
+
+	@FXML
+	TextField name = new TextField();
+	@FXML
+	TextField cnic = new TextField();
+
+	@FXML
+	ComboBox<String> descBox = new ComboBox<String>();
+
+	@FXML
+	private Text Prompt = new Text();
+
+	@FXML
+	Label Fee = new Label();
+	@FXML
+	Label prompta = new Label();
 	
-	@FXML
-	TextField AppID2=new TextField();
 	
+
 	@FXML
-	TextField name=new TextField();
+	private void Payment(ActionEvent event) throws IOException {
+		MakePaymentController p = new MakePaymentController();
+		int appid = Integer.parseInt(AppID2.getText());
+		if (AppID2.getText().isBlank()) {
+			prompta.setText("*Please fill in all fields");
+		} 
+		else if(descBox.getValue().isBlank())
+		{
+			prompta.setText("*Please fill in all fields");
+		}
+			else {
+		
+			int check = p.MakePayment(appid);// PaymentSuccessful
+			if (check != 0) {
+				Parent CalenderView = FXMLLoader.load(getClass().getResource("PaymentSuccessful.fxml"));
+				Scene CalenderScene = new Scene(CalenderView);
+				Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				window.setScene(CalenderScene);
+				window.setTitle("");
+				window.show();
+			}
+			else
+			{
+				prompta.setText("*Appointment not found");
+			}
+
+		}
+	}
+
 	@FXML
-	TextField cnic=new TextField();
-	
-	@FXML
-	ComboBox<String> descBox=new ComboBox<String>();
-	
-	@FXML
-	private Text Prompt=new Text();
-	
-	@FXML
-	Label Fee=new Label();
-	
-	
-	@FXML
-    private void Payment(ActionEvent event)  throws IOException {
-		MakePaymentController p=new MakePaymentController();
-		int appid=Integer.parseInt(AppID2.getText());
-		p.MakePayment(appid);//PaymentSuccessful
-		//System.out.println(appid+"THIS SHOULD WORK");
-		Parent CalenderView = FXMLLoader.load(getClass().getResource("PaymentSuccessful.fxml"));
-		Scene CalenderScene=  new Scene(CalenderView);
-		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		window.setScene(CalenderScene);
-		window.setTitle("");
-		window.show();
-    }
-	@FXML
-	private void getFee(ActionEvent event) throws IOException { 
-		int appid=Integer.parseInt(AppID.getText());
-		String Name=name.getText();
-		int Cnic=Integer.parseInt(cnic.getText());
-		MakePaymentController p=new MakePaymentController();
-		int fee=p.getFee(appid, Name, Cnic);
-		if(fee!=0)
-		{	
-			Fee.setText("Your payment is "+ String.valueOf(fee));
+	private void getFee(ActionEvent event) throws IOException {
+		int appid = Integer.parseInt(AppID.getText());
+		String Name = name.getText();
+		int Cnic = Integer.parseInt(cnic.getText());
+		if (AppID.getText().isBlank()||name.getText().isBlank()||cnic.getText().isBlank()) {
+			Prompt.setText("*Please fill in all fields");
+		} 
+		else if(appid<0)
+		{
+			Prompt.setText("*Invalid Input entered");
+		}
+		else if(Cnic<100000000 || Cnic >999999999)
+		{
+			Prompt.setText("*Invalid Input entered");
 		}
 		else
 		{
-			Prompt.setText("Appointment not found");
+		MakePaymentController p = new MakePaymentController();
+		int fee = p.getFee(appid, Name, Cnic);
+		if (fee != 0) {
+			Fee.setText("Your payment is " + String.valueOf(fee));
+		} else {
+			Prompt.setText("*Appointment not found");
 		}
-		
+		}
+
 	}
+
 	@FXML
-	private void ProceedToPay(ActionEvent event) throws IOException { 
+	private void ProceedToPay(ActionEvent event) throws IOException {
 		Parent CalenderView = FXMLLoader.load(getClass().getResource("MakePayment.fxml"));
-		Scene CalenderScene=  new Scene(CalenderView);
-		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		Scene CalenderScene = new Scene(CalenderView);
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		window.setScene(CalenderScene);
 		window.setTitle("");
 		window.show();
 	}
-	 @FXML
-	    private void home(ActionEvent event) throws IOException {
-	    	Parent HomeView = FXMLLoader.load(getClass().getResource("Main_Menu.fxml"));
-			Scene HomeScene=  new Scene(HomeView);
-			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-			window.setScene(HomeScene);
-			window.setTitle("Main Menu");
-			window.show();
-	    }
+
+	@FXML
+	private void home(ActionEvent event) throws IOException {
+		Parent HomeView = FXMLLoader.load(getClass().getResource("Main_Menu.fxml"));
+		Scene HomeScene = new Scene(HomeView);
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		window.setScene(HomeScene);
+		window.setTitle("Main Menu");
+		window.show();
+	}
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		ObservableList<String> BoxInfo=FXCollections.observableArrayList("Credit Card","Cash","Debit Card","Bank Transfer","Mobile Payment","Others");
+		ObservableList<String> BoxInfo = FXCollections.observableArrayList("Credit Card", "Cash", "Debit Card",
+				"Bank Transfer", "Mobile Payment", "Others");
 		descBox.setItems(BoxInfo);
 
-		
 	}
 }
