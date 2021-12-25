@@ -34,7 +34,7 @@
             </ImageView>
             <TableView fx:id="AppNamesView" layoutX="344.0" layoutY="65.0" prefHeight="326.0" prefWidth="109.0">
               <columns>
-                <TableColumn fx:id="AppName" prefWidth="108.79998779296875" text="Service" />
+                <TableColumn fx:id="AppName" prefWidth="108.80001220703124" text="Service" />
               </columns>
             </TableView>
             <TableView fx:id="PatNameView" layoutX="454.0" layoutY="65.0" prefHeight="326.0" prefWidth="110.0">

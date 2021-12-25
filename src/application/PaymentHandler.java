@@ -43,16 +43,22 @@ public class PaymentHandler implements Initializable {
 	@FXML
 	Label prompta = new Label();
 	
+	@FXML
+	Button payNow= new Button();
 	
-
+	public void buttonenable()
+	{
+		payNow.setVisible(true);
+		payNow.setDisable(false);
+	}
 	@FXML
 	private void Payment(ActionEvent event) throws IOException {
 		MakePaymentController p = new MakePaymentController();
 		int appid = Integer.parseInt(AppID2.getText());
-		if (AppID2.getText().isBlank()) {
+		if (AppID2.getText().isEmpty()) {
 			prompta.setText("*Please fill in all fields");
 		} 
-		else if(descBox.getValue().isBlank())
+		else if(descBox.getValue()==null)
 		{
 			prompta.setText("*Please fill in all fields");
 		}
@@ -80,7 +86,7 @@ public class PaymentHandler implements Initializable {
 		int appid = Integer.parseInt(AppID.getText());
 		String Name = name.getText();
 		int Cnic = Integer.parseInt(cnic.getText());
-		if (AppID.getText().isBlank()||name.getText().isBlank()||cnic.getText().isBlank()) {
+		if (AppID.getText().isEmpty()||name.getText().isEmpty()||cnic.getText().isEmpty()) {
 			Prompt.setText("*Please fill in all fields");
 		} 
 		else if(appid<0)
@@ -95,10 +101,16 @@ public class PaymentHandler implements Initializable {
 		{
 		MakePaymentController p = new MakePaymentController();
 		int fee = p.getFee(appid, Name, Cnic);
-		if (fee != 0) {
+		if (fee > 0) {
 			Fee.setText("Your payment is " + String.valueOf(fee));
-		} else {
+			Prompt.setText("");
+			this.buttonenable();
+		} else if(fee==0){
 			Prompt.setText("*Appointment not found");
+		}
+		else if(fee==-1)
+		{
+			Prompt.setText("*This appointment is already paid for");
 		}
 		}
 
@@ -126,6 +138,8 @@ public class PaymentHandler implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		payNow.setVisible(false);
+		payNow.setDisable(true);
 		ObservableList<String> BoxInfo = FXCollections.observableArrayList("Credit Card", "Cash", "Debit Card",
 				"Bank Transfer", "Mobile Payment", "Others");
 		descBox.setItems(BoxInfo);

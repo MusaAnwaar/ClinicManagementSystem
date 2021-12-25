@@ -57,23 +57,13 @@ public class TransactionsViewHandler implements Initializable{
 
     @FXML
     private Label titleLabel;
+    DBHandler db=new DBHandler();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    	
-    	Configuration cfg = new Configuration();
-		cfg.configure("hibernate.cfg.xml");
-		SessionFactory factory = cfg.buildSessionFactory();
-		//Put in DB handler
-		Session session = factory.openSession();
-		String query = "from Ledger";
-		Query q=session.createQuery(query);
 		
-		String query2 = "from Appointment";
-		Query q2=session.createQuery(query2);
-		
-		List<Appointment> list3=q2.list(); 
-		List<Ledger> list=q.list(); 
+		List<Appointment> list3=db.FetchAppointments(); 
+		List<Ledger> list=db.FetchLedger(); 
 		List<String> list1=new ArrayList();
 		List<String> list2=new ArrayList();
 		int paymentID;
@@ -90,8 +80,7 @@ public class TransactionsViewHandler implements Initializable{
 			}
 		}
 		
-		
-		ObservableList<Ledger> trans = FXCollections.observableArrayList(q.list());
+		ObservableList<Ledger> trans = FXCollections.observableArrayList(list);
 		ObservableList<String> anames = FXCollections.observableArrayList(list1);
 		ObservableList<String> pnames = FXCollections.observableArrayList(list2);
 

@@ -24,7 +24,14 @@ public class MakePaymentController {
 				  {
 					  if(AppSchedule.get(i).getBooking().getPatient().getCnic()==cnic)
 					  {
+						  if(AppSchedule.get(i).getPayment().getPaidStatus()==1)
+						  {
+							  Fee=-1;
+						  }
+						  else
+						  {
 						  Fee=AppSchedule.get(i).getPayment().getAmount();
+						  }
 					  }
 				  }
 			  }
@@ -47,6 +54,8 @@ public class MakePaymentController {
 				  DBHandler ins = new DBHandler();
 				  ins.updatePaymentDBHandler(AppSchedule.get(i).payment.PaymentID);
 				  AppSchedule.get(i).getPayment().setPaidStatus(1);
+				  AppSchedule.get(i).setAppointmentStatus(1);
+				  AppSchedule.get(i).getBooking().setBookingStatus(3);
 				  AppSchedule.get(i).getPayment().setDatePaid(new Date());;
 				  //System.out.println("I come here");	
 			  }

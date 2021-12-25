@@ -13,7 +13,6 @@ public class Clinic {
     Ledger ledger1;
     List<Appointment> AppointmentSchedule=new ArrayList<Appointment>();
     List<AppointmentDescription> AppointmentCatalogue=new ArrayList<AppointmentDescription>();
-
     List<Feedback> Feedbacks=new ArrayList<Feedback>();
 
     private static Clinic clinic = null; 
@@ -108,7 +107,7 @@ public class Clinic {
 			f.setFeedback(str);
 			f.setDateAdded(new Date());
 			DBHandler ins = new DBHandler();
-			ins.setFeedback(f);
+			ins.FeedbackDBHandler(f);
 			Feedbacks.add(f);
 
 	}

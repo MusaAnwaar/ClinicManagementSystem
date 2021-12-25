@@ -51,10 +51,18 @@ public class AppointmentsHandler implements Initializable {
 
 	@FXML
 	private Label Prompb = new Label();
+
+	@FXML
+	private Label PromptD = new Label();
+
 	@FXML
 	private Label Prompb1 = new Label();
 	@FXML
 	private Label Prompb2 = new Label();
+
+	public void settexttolabel(int text) {
+		PromptD.setText(String.valueOf(text));
+	}
 
 	// For canceling Appointment
 	@FXML
@@ -175,26 +183,42 @@ public class AppointmentsHandler implements Initializable {
 		int Age = Integer.parseInt(age.getText());
 		int Cnic = Integer.parseInt(cnic.getText());
 		String Email = email.getText();
-		if (descBox.getValue().isEmpty()||timem.getText().isEmpty() || timeh.getText().isEmpty() || year.getText().isEmpty()
-				|| month.getText().isEmpty() || day.getText().isEmpty() || name.getText().isEmpty()
-				|| age.getText().isEmpty() || cnic.getText().isEmpty() || email.getText().isEmpty()) {
+		if (descBox.getValue() == null || timem.getText().isEmpty() || timeh.getText().isEmpty()
+				|| year.getText().isEmpty() || month.getText().isEmpty() || day.getText().isEmpty()
+				|| name.getText().isEmpty() || age.getText().isEmpty() || cnic.getText().isEmpty()
+				|| email.getText().isEmpty()) {
 			Prompb2.setText("*Please fill in all the fields ");
 		} else if (Timem > 60 || Timeh > 20 || Timeh < 8) {
+			Prompb.setText("");
 			Prompb.setText("*Invalid time entered");
-		} else if (y > 2023 || y <2021 || d > 31 || m > 12) {
+		} else if (y > 2023 || y < 2021 || d > 31 || m > 12) {
+			Prompb.setText("");
 			Prompb.setText("*Invalid date entered");
 		} else if (Age <= 0) {
+			Prompb1.setText("");
 			Prompb1.setText("*Invalid age entered");
 		} else if (Cnic < 100000000 || Cnic > 999999999) {
+			Prompb1.setText("");
 			Prompb1.setText("*Invalid Cnic entered");
 		} else {
-			b.BookAppointment(service, Timem, Timeh, Date, Name, Age, Cnic, Email);
-			Parent HomeView = FXMLLoader.load(getClass().getResource("AppointmentBookingSuccessful.fxml"));
-			Scene HomeScene = new Scene(HomeView);
-			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			window.setScene(HomeScene);
-			window.setTitle("Main Menu");
-			window.show();
+			Prompb2.setText("");
+			Prompb1.setText("");
+			Prompb.setText("");
+			int x = b.BookAppointment(service, Timem, Timeh, Date, Name, Age, Cnic, Email);
+			if (x == -1) {
+				Prompb2.setText("Appointment for this time already exists");
+			} else {
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(getClass().getResource("AppointmentBookingSuccessful.fxml"));
+				Parent HomeView = loader.load();
+				AppointmentsHandler hand = loader.getController();
+				hand.settexttolabel(x);
+				Scene HomeScene = new Scene(HomeView);
+				Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				window.setScene(HomeScene);
+				window.setTitle("Main Menu");
+				window.show();
+			}
 		}
 	}
 
@@ -205,32 +229,29 @@ public class AppointmentsHandler implements Initializable {
 		int appid = Integer.parseInt(AppID.getText());
 		String Name = name1.getText();
 		int Cnic = Integer.parseInt(cnic1.getText());
-		if(name1.getText().isBlank()||AppID.getText().isBlank()||cnic1.getText().isBlank())
-		{
+		if (name1.getText().isEmpty() || AppID.getText().isEmpty() || cnic1.getText().isEmpty()) {
 			Promptc.setText("*Please fill in all the fields");
-		}
-		else if(appid<0)
-		{
+		} else if (appid < 0) {
 			Promptc.setText("Invalid input entered");
-		}
-		else if(Cnic<100000000 || Cnic>999999999)
-		{
+		} else if (Cnic < 100000000 || Cnic > 999999999) {
 			Promptc.setText("Invalid input entered");
-		}
-		else
-		{
-		CancelAppointmentController c = new CancelAppointmentController();
-		check = c.CancelAppointment(appid, Name, Cnic);
-		if (check != 0) {
-			Parent CalenderView = FXMLLoader.load(getClass().getResource("AppointmentCancellationSuccessful.fxml"));
-			Scene CalenderScene = new Scene(CalenderView);
-			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			window.setScene(CalenderScene);
-			window.setTitle("");
-			window.show();
 		} else {
-			Promptc.setText("*Appointment not found");
-		}
+			CancelAppointmentController c = new CancelAppointmentController();
+			check = c.CancelAppointment(appid, Name, Cnic);
+			if (check == 1) {
+				Parent CalenderView = FXMLLoader.load(getClass().getResource("AppointmentCancellationSuccessful.fxml"));
+				Scene CalenderScene = new Scene(CalenderView);
+				Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				window.setScene(CalenderScene);
+				window.setTitle("");
+				window.show();
+			} else if (check==0){
+				Promptc.setText("*Appointment not found");
+			}
+			else if(check==-1)
+			{
+				Promptc.setText("There is no record of booking for this Appointment");
+			}
 		}
 
 	}
@@ -242,32 +263,29 @@ public class AppointmentsHandler implements Initializable {
 		int appid = Integer.parseInt(AppID2.getText());
 		String Name = name2.getText();
 		int Cnic = Integer.parseInt(cnic2.getText());
-		if(name2.getText().isBlank()||AppID2.getText().isBlank()||cnic2.getText().isBlank())
-		{
+		if (name2.getText().isEmpty() || AppID2.getText().isEmpty() || cnic2.getText().isEmpty()) {
 			Promptc.setText("*Please fill in all the fields");
-		}
-		else if(appid<0)
-		{
+		} else if (appid < 0) {
 			Promptc.setText("Invalid input entered");
-		}
-		else if(Cnic<100000000 || Cnic>999999999)
-		{
+		} else if (Cnic < 100000000 || Cnic > 999999999) {
 			Promptc.setText("Invalid input entered");
-		}
-		else
-		{
-		CancelAppointmentController c = new CancelAppointmentController();
-		check = c.CancelAppointment(appid, Name, Cnic);
-		if (check != 0) {
-			Parent CalenderView = FXMLLoader.load(getClass().getResource("RescheduleAppointment.fxml"));
-			Scene CalenderScene = new Scene(CalenderView);
-			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			window.setScene(CalenderScene);
-			window.setTitle("");
-			window.show();
 		} else {
-			Promptd.setText("Appointment not found");
-		}
+			CancelAppointmentController c = new CancelAppointmentController();
+			check = c.CancelAppointment(appid, Name, Cnic);
+			if (check == 1) {
+				Parent CalenderView = FXMLLoader.load(getClass().getResource("RescheduleAppointment.fxml"));
+				Scene CalenderScene = new Scene(CalenderView);
+				Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				window.setScene(CalenderScene);
+				window.setTitle("");
+				window.show();
+			} else if (check==0){
+				Promptd.setText("*Appointment not found");
+			}
+			else if(check==-1)
+			{
+				Promptd.setText("There is no record of booking for this Appointment");
+			}
 		}
 
 	}
@@ -286,26 +304,43 @@ public class AppointmentsHandler implements Initializable {
 		int Age = Integer.parseInt(age0.getText());
 		int Cnic = Integer.parseInt(cnic0.getText());
 		String Email = email0.getText();
-		if (descBox.getValue().isEmpty()||timem1.getText().isEmpty() || timeh1.getText().isEmpty() || year1.getText().isEmpty()
-				|| month1.getText().isEmpty() || day1.getText().isEmpty() || name0.getText().isEmpty()
-				|| age0.getText().isEmpty() || cnic0.getText().isEmpty() || email0.getText().isEmpty()) {
+		if (descBox.getValue() == null || timem1.getText().isEmpty() || timeh1.getText().isEmpty()
+				|| year1.getText().isEmpty() || month1.getText().isEmpty() || day1.getText().isEmpty()
+				|| name0.getText().isEmpty() || age0.getText().isEmpty() || cnic0.getText().isEmpty()
+				|| email0.getText().isEmpty()) {
 			Prompb2.setText("*Please fill in all the fields ");
+
 		} else if (Timem > 60 || Timeh > 20 || Timeh < 8) {
+			Prompb.setText("");
 			Prompb.setText("*Invalid time entered");
-		} else if (y > 2023 || y <2021 || d > 31 || m > 12) {
+		} else if (y > 2023 || y < 2021 || d > 31 || m > 12) {
+			Prompb.setText("");
 			Prompb.setText("*Invalid date entered");
 		} else if (Age <= 0) {
+			Prompb1.setText("");
 			Prompb1.setText("*Invalid age entered");
 		} else if (Cnic < 100000000 || Cnic > 999999999) {
+			Prompb1.setText("");
 			Prompb1.setText("*Invalid Cnic entered");
 		} else {
-		b.BookAppointment(service, Timem, Timeh, Date, Name, Age, Cnic, Email);
-		Parent HomeView = FXMLLoader.load(getClass().getResource("AppointmentBookingSuccessful.fxml"));
-		Scene HomeScene = new Scene(HomeView);
-		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		window.setScene(HomeScene);
-		window.setTitle("Main Menu");
-		window.show();
+			Prompb2.setText("");
+			Prompb1.setText("");
+			Prompb.setText("");
+			int x = b.BookAppointment(service, Timem, Timeh, Date, Name, Age, Cnic, Email);
+			if (x == -1) {
+				Prompb2.setText("Appointment for this time already exists");
+			} else {
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(getClass().getResource("AppointmentBookingSuccessful.fxml"));
+				Parent HomeView = loader.load();
+				AppointmentsHandler hand = loader.getController();
+				hand.settexttolabel(x);
+				Scene HomeScene = new Scene(HomeView);
+				Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				window.setScene(HomeScene);
+				window.setTitle("Main Menu");
+				window.show();
+			}
 		}
 	}
 

@@ -38,50 +38,50 @@
             <Font name="Calisto MT Bold" size="15.0" />
          </font>
       </Label>
-      <Button ellipsisString="" layoutX="314.0" layoutY="131.0" mnemonicParsing="false" onAction="#Appointmentoptions" opacity="0.0" prefHeight="41.0" prefWidth="43.0" text="Button" />
       <Label layoutX="580.0" layoutY="187.0" prefHeight="23.0" prefWidth="131.0" text="Make Payment">
          <font>
             <Font name="Calisto MT Bold" size="15.0" />
          </font>
       </Label>
+      <Button ellipsisString="" layoutX="314.0" layoutY="131.0" mnemonicParsing="false" onAction="#Appointmentoptions" opacity="0.0" prefHeight="41.0" prefWidth="43.0" text="Button" />
       <ImageView disable="true" fitHeight="56.0" fitWidth="54.0" layoutX="608.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/online-payment-icon-16.jpg" />
          </image>
       </ImageView>
-      <Button ellipsisString="" layoutX="608.0" layoutY="136.0" mnemonicParsing="false" onAction="#Make_Payment" opacity="0.0" prefHeight="48.0" prefWidth="54.0" text="Button" />
-      <Label layoutX="282.0" layoutY="353.0" prefHeight="24.0" prefWidth="124.0" text="View Transactions">
+      <Label layoutX="301.0" layoutY="365.0" prefHeight="24.0" prefWidth="85.0" text="Transactions">
          <font>
             <Font name="Calisto MT Bold" size="15.0" />
          </font>
       </Label>
+      <Button ellipsisString="" layoutX="608.0" layoutY="136.0" mnemonicParsing="false" onAction="#Make_Payment" opacity="0.0" prefHeight="48.0" prefWidth="54.0" text="Button" />
       <ImageView disable="true" fitHeight="54.0" fitWidth="54.0" layoutX="317.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/medical-report.png" />
          </image>
       </ImageView>
-      <Button ellipsisString="" layoutX="322.0" layoutY="298.0" mnemonicParsing="false" onAction="#ViewTransactions" opacity="0.0" prefHeight="54.0" prefWidth="43.0" text="Button" />
-      <Label layoutX="600.0" layoutY="353.0" prefHeight="24.0" prefWidth="54.0" text="Profiles">
+      <Label layoutX="574.0" layoutY="365.0" prefHeight="24.0" prefWidth="107.0" text="Patient Profiles">
          <font>
             <Font name="Calisto MT Bold" size="15.0" />
          </font>
       </Label>
-      <ImageView disable="true" fitHeight="54.0" fitWidth="65.0" layoutX="601.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+      <Button ellipsisString="" layoutX="322.0" layoutY="298.0" mnemonicParsing="false" onAction="#ViewTransactions" opacity="0.0" prefHeight="54.0" prefWidth="43.0" text="Button" />
+      <ImageView disable="true" fitHeight="77.0" fitWidth="70.0" layoutX="593.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Images/7012-200.png" />
+            <Image url="@Images/848680-200.png" />
          </image>
       </ImageView>
-      <Button ellipsisString="" layoutX="606.0" layoutY="295.0" mnemonicParsing="false" onAction="#ProfileOptions" opacity="0.0" prefHeight="54.0" prefWidth="43.0" text="Button" />
       <Button ellipsisString="" layoutX="472.0" layoutY="410.0" mnemonicParsing="false" onAction="#Give_Feedback" opacity="0.0" prefHeight="42.0" prefWidth="43.0" text="Button" />
-      <ImageView disable="true" fitHeight="48.0" fitWidth="54.0" layoutX="470.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/17698-200.png" />
-         </image>
-      </ImageView>
       <Label layoutX="440.0" layoutY="461.0" prefHeight="24.0" prefWidth="107.0" text="Give Feedback">
          <font>
             <Font name="Calisto MT Bold" size="15.0" />
          </font>
       </Label>
+      <Button ellipsisString="" layoutX="600.0" layoutY="290.0" mnemonicParsing="false" onAction="#ViewPatientProfile" opacity="0.0" prefHeight="70.0" prefWidth="54.0" text="Button" />
+      <ImageView disable="true" fitHeight="48.0" fitWidth="54.0" layoutX="470.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/17698-200.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

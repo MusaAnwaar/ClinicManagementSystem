@@ -8,16 +8,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="797.0" style="-fx-background-color: white;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PaymentHandler">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="797.0" style="-fx-background-color: white;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AppointmentsHandler">
    <children>
       <ImageView fitHeight="532.0" fitWidth="872.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/v870-tang-36.jpg" />
          </image>
       </ImageView>
-      <Label ellipsisString="" layoutX="198.0" layoutY="194.0" prefHeight="90.0" prefWidth="542.0" text="Your appointment has been registered!">
+      <Label ellipsisString="" layoutX="240.0" layoutY="202.0" prefHeight="55.0" prefWidth="390.0" text="Appointment has been registered!">
          <font>
-            <Font name="Calisto MT Bold Italic" size="35.0" />
+            <Font name="Calisto MT Bold Italic" size="29.0" />
          </font>
          <cursor>
             <Cursor fx:constant="DEFAULT" />
@@ -29,5 +29,18 @@
             <Image url="@Images/25694.png" />
          </image>
       </ImageView>
+      <Label ellipsisString="" layoutX="240.0" layoutY="248.0" prefHeight="55.0" prefWidth="286.0" text="Your Appointment ID is">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="29.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Label>
+      <Label fx:id="PromptD" layoutX="526.0" layoutY="258.0">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="29.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

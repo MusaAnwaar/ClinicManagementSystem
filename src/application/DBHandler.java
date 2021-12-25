@@ -29,6 +29,8 @@ public class DBHandler
 			clinic.AppointmentSchedule=q.list();
 	  }
 	  
+	  
+	  
 	  /*public List paymentlist() //sends lists of apps for makepayment
 	  {
 		  	/*SessionFactory factory = new Configuration().configure().buildSessionFactory();
@@ -45,7 +47,7 @@ public class DBHandler
 			//clinic.AppointmentSchedule.add(p);
 	  }*/
 	
-	public void setFeedback(Feedback obj)
+	public void FeedbackDBHandler(Feedback obj)
 	{
 		//Saving Feedback Object to DB
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
@@ -59,23 +61,6 @@ public class DBHandler
 		session.close();
 	}
 	
-	public void getPatientProfiles()
-	{
-		/*Configuration cfg = new Configuration();
-		cfg.configure("hibernate.cfg.xml");
-		SessionFactory factory = cfg.buildSessionFactory();
-		
-		Session session = factory.openSession();
-		String query = "from Patient";
-		Query q=session.createQuery(query);
-		List<Patient> list=q.list(); 
-		
-		
-	
-		//Patient profile = (Patient)session.get(Patient.class, 1);
-		session.close();
-		factory.close();*/
-		}
 	public void PatientDBHandler(Patient obj)
 	{
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
@@ -207,5 +192,42 @@ public class DBHandler
 		
 		factory.close();
 	}
+	public List FetchAppointments()
+	  {
+		    Configuration cfg = new Configuration();
+			cfg.configure("hibernate.cfg.xml");
+			SessionFactory factory = cfg.buildSessionFactory();
+			//Put in DB handler
+			Session session = factory.openSession();
+			String query = "from Appointment";
+			Query q=session.createQuery(query);
+			return q.list();
+	  }
+
+	public List FetchPatientProfiles()
+	{
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		SessionFactory factory = cfg.buildSessionFactory();
+		//Put in DB handler
+		Session session = factory.openSession();
+		String query = "from Patient";
+		Query q=session.createQuery(query);
+		List<Patient> list=q.list(); 
+		return q.list();
+	}
+	public List FetchLedger()
+	{
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		SessionFactory factory = cfg.buildSessionFactory();
+		//Put in DB handler
+		Session session = factory.openSession();
+		String query = "from Ledger";
+		Query q=session.createQuery(query);
+		List<Patient> list=q.list(); 
+		return q.list();
+	}
+	
 
 }

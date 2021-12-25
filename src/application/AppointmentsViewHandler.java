@@ -72,21 +72,12 @@ public class AppointmentsViewHandler implements Initializable{
 
     @FXML
     private Label titleLabel;
+    DBHandler db=new DBHandler();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    	
-    	Configuration cfg = new Configuration();
-		cfg.configure("hibernate.cfg.xml");
-		SessionFactory factory = cfg.buildSessionFactory();
-		//Put in DB handler
-		Session session = factory.openSession();
-		String query = "from Appointment";
-		Query q=session.createQuery(query);
-		
-		
-		
-		List<Appointment> list=q.list(); 
+
+		List<Appointment> list=db.FetchAppointments(); 
 		List<String> list1=new ArrayList();
 		List<String> list2=new ArrayList();
 		List<String> list3=new ArrayList();
@@ -96,9 +87,13 @@ public class AppointmentsViewHandler implements Initializable{
 			{
 				list1.add("Cancelled");
 			}
-			else
+			else if(list.get(i).booking.getBookingStatus()==1)
 			{
 				list1.add("Booked");
+			}
+			else
+			{
+				list1.add("Completed");
 			}
 		}
 		for(int i=0;i<list.size();i++)
@@ -110,18 +105,17 @@ public class AppointmentsViewHandler implements Initializable{
 			list3.add(String.valueOf(list.get(i).getTimeh())+":"+String.valueOf(list.get(i).getTimem()));
 		}
 		
-		ObservableList<Appointment> appointments = FXCollections.observableArrayList(q.list());
+		ObservableList<Appointment> appointments = FXCollections.observableArrayList(list);
 		ObservableList<String> time = FXCollections.observableArrayList(list3);
 		ObservableList<String> names = FXCollections.observableArrayList(list2);
 		ObservableList<String> bookings = FXCollections.observableArrayList(list1);
 
-        //make sure the property value factory should be exactly same as the e.g getStudentId from your model class
 		AppID.setCellValueFactory(new PropertyValueFactory<>("AppointmentID"));
 		AppDate.setCellValueFactory(new PropertyValueFactory<>("AppDate"));
 		AppTime.setCellValueFactory(data -> new SimpleStringProperty(data.getValue()));
 		PatientName.setCellValueFactory(data -> new SimpleStringProperty(data.getValue()));
 		BookedStatus.setCellValueFactory(data -> new SimpleStringProperty(data.getValue()));
-        //add your data to the table here.
+
         AppointmentsView.setItems(appointments);
         TimeView.setItems(time);
         PatientNameView.setItems(names);
@@ -138,17 +132,4 @@ public class AppointmentsViewHandler implements Initializable{
 		window.show();
     }
     
-    @FXML
-    void handleDeleteButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleModifyButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleSearchButton(ActionEvent event) {
-    }
 }

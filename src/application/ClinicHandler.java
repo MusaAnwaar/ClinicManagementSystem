@@ -124,25 +124,6 @@ public class ClinicHandler {
 		window.setTitle("");
 		window.show();
     }
-  
-    @FXML
-    private void  ProfileOptions(ActionEvent event) throws IOException {
-    	Parent CalenderView = FXMLLoader.load(getClass().getResource("ProfileOptions.fxml"));
-		Scene CalenderScene=  new Scene(CalenderView);
-		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		window.setScene(CalenderScene);
-		window.setTitle("");
-		window.show();
-    }
-    @FXML
-    private void  ViewStaffProfiles(ActionEvent event) throws IOException {
-    	Parent CalenderView = FXMLLoader.load(getClass().getResource("ProfileOptions.fxml"));
-		Scene CalenderScene=  new Scene(CalenderView);
-		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		window.setScene(CalenderScene);
-		window.setTitle("");
-		window.show();
-    }
     @FXML
     private void  ViewPatientProfile(ActionEvent event) throws IOException {
     	Parent CalenderView = FXMLLoader.load(getClass().getResource("PatientView.fxml"));

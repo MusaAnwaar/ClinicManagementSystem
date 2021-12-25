@@ -49,11 +49,6 @@
             <Image url="@Images/1642054.png" />
          </image>
       </ImageView>
-      <ImageView disable="true" fitHeight="71.0" fitWidth="114.0" layoutX="498.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/3745576.png" />
-         </image>
-      </ImageView>
       <Button layoutX="337.0" layoutY="358.0" mnemonicParsing="false" onAction="#getFee" prefHeight="42.0" prefWidth="65.0" style="-fx-background-radius: 20; -fx-background-color: #3db1ab;" text="Get Fee">
          <font>
             <Font name="System Bold Italic" size="12.0" />
@@ -68,6 +63,13 @@
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="498.0" layoutY="429.0" mnemonicParsing="false" onAction="#ProceedToPay" opacity="0.0" prefHeight="42.0" prefWidth="71.0" text="Button" />
+      <Button fx:id="payNow" layoutX="498.0" layoutY="423.0" mnemonicParsing="false" onAction="#ProceedToPay" prefHeight="42.0" prefWidth="71.0" style="-fx-background-color: #3db1ab; -fx-background-radius: 20;">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/3745576.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>

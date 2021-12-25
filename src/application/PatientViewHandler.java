@@ -61,36 +61,19 @@ public class PatientViewHandler implements Initializable{
 
     @FXML
     private Label titleLabel;
+    
+    DBHandler db=new DBHandler();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     	
-    	Configuration cfg = new Configuration();
-		cfg.configure("hibernate.cfg.xml");
-		SessionFactory factory = cfg.buildSessionFactory();
-		//Put in DB handler
-		Session session = factory.openSession();
-		String query = "from Patient";
-		Query q=session.createQuery(query);
-		List<Patient> list=q.list(); 
-		
-		
-		ObservableList<Patient> person = FXCollections.observableArrayList(q.list());
-	
-
-        		/*FXCollections.observableArrayList(
-                new Patient(22,21,"Zainab", "45565556", "zainab@gmail.com"),
-                new Patient(33,60,"Rafia", "57543535", "rafia@gmail.com")
-            );*/
-
-
-        //make sure the property value factory should be exactly same as the e.g getStudentId from your model class
+		ObservableList<Patient> person = FXCollections.observableArrayList(db.FetchPatientProfiles());
         PatientIDColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         AgeColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
         NameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         CNICColumn.setCellValueFactory(new PropertyValueFactory<>("cnic"));
         EmailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
-        //add your data to the table here.
+        
         PersonView.setItems(person);
     }
 
